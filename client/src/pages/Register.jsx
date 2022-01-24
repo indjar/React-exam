@@ -42,10 +42,10 @@ export const Register = () => {
                         <Item as="img" src={`${process.env.PUBLIC_URL}/logo.jpg`} alt="logo" />
                     </Title1>
                     <Navi>
-                        <Button register>
+                        <Button  register='true'>
                             <Link style={{ color: "#1d3972" }} to="/register">Register</Link>
                         </Button>
-                        <Button login>
+                        <Button login="true">
                             <Link style={{ color: "white" }} to="/Login" >Login</Link>
                         </Button>
                     </Navi>
