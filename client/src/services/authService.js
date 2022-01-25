@@ -1,14 +1,14 @@
-const AUTH_URL = `${process.env.REACT_APP_BASE_URL}/v1/auth/register`;
-
+const AUTH_URL = `${process.env.REACT_APP_BASE_URL}/v1/auth/`;
+console.log (AUTH_URL)
 export class Auth {
-    static async register(username, password) {
+    static async register(email, password) {
         const res = await fetch(`${AUTH_URL}/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username,
+                email,
                 password,
             }),
         });
@@ -16,14 +16,14 @@ export class Auth {
         return res.json();
     }
 
-    static async login(username, password) {
+    static async login(email, password) {
         const res = await fetch(`${AUTH_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username,
+                email,
                 password,
             }),
         });
