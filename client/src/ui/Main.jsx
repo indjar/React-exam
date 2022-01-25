@@ -10,6 +10,8 @@ const form = ({ ...rest}) =>
 export const Main = ({ ...rest}) =>
     Element({as: "main", className:"main", ...rest});
 
+const title3=({...rest})=> 
+    Element({as: "h1", ...rest});
 
 
 export const Container= styled(container)`
@@ -25,4 +27,8 @@ export const Form= styled(form)`
     padding: 20px;
     border: 1px solid #eee;
     border-radius: 5px;
+`
+
+export const Title3=styled(title3)`
+    text-align: center;
 `

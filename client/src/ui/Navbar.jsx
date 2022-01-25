@@ -44,3 +44,4 @@ export const Title1=styled(title1)`
     margin: 5px 0 0 15px;
     font-size: 0;
 `
+
