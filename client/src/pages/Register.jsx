@@ -8,12 +8,12 @@ import { Form, Container, Main, Title3 } from "../ui/Main";
 
 export const Register = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
-    const onUsernameChange = (e) => {
-        setUsername(e.target.value);
+    const onEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
     const onPasswordChange = (e) => {
@@ -22,12 +22,12 @@ export const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!username || !password) return;
+        if (!email || !password) return;
 
-        const res = await Auth.register(username, password);
+        const res = await Auth.register(email, password);
 
-        if (res.error) {
-            setError(res.error);
+        if (res.err) {
+            setError(res.err);
             return;
         }
         setError(null);
@@ -54,9 +54,9 @@ export const Register = () => {
       <Container>
             <Form onSubmit={handleSubmit}>
                 <Title3>Register</Title3>
-                <Field onChange={onUsernameChange} label="User name" placeholder="User Name" name="username" required />
+                <Field onChange={onEmailChange} label="Email" placeholder="mail@mail.lt" name="email" required />
                 <Field onChange={onPasswordChange} label="Password" name="password" type="password" required minLength={8} />
-                <Button login="true" style={{ color: "white" }} type="submit" disabled={!username || !password}>
+                <Button login="true" style={{ color: "white" }} type="submit" disabled={!email || !password}>
                         Register
                 </Button>
                 <div style={{color: "red"}}>{error}</div>

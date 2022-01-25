@@ -2,7 +2,6 @@ import {useState} from "react";
 import {AuthContext} from "../hooks/auth";
 import {Auth} from "../services/authService";
 
-// extract username from jwt
 const decodeToken = (token) => {
     if (!token) return null;
 
@@ -18,22 +17,22 @@ export const AuthProvider = ({children}) => {
 
     const [state, setState] = useState({
         token,
-        username: decoded ? decoded.username : null,
+        email: decoded ? decoded.email : null,
         error: null,
     });
 
-    const login = async (user, password) => {
-        const res = await Auth.login(user, password);
-
-        if (res.error) {
-            console.error(res.error);
-
-            setState({error: res.error, token: null});
-
-            return {error: res.error};
+    const login = async (email, password) => {
+        const res = await Auth.login(email, password);
+        console.log(res)
+        if (res.err) {
+            console.error(res.err);
+            console.log(res.err)
+            setState({error: res.err, token: null});
+            alert (`${res.err}`)
+            return {error: res.err};
         }
 
-        setState({error: null, token: res.token, username: decodeToken(res.token).username});
+        setState({error: null, token: res.token, email: decodeToken(res.token).email});
         sessionStorage.setItem("token", res.token);
 
         return {token: res.token};
@@ -43,7 +42,7 @@ export const AuthProvider = ({children}) => {
         setState({
             token: null,
             error: null,
-            username: null,
+            email: null,
         });
 
         sessionStorage.removeItem("token");

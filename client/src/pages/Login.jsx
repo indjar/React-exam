@@ -9,12 +9,12 @@ import { Form, Container, Main, Title3 } from "../ui/Main";
 export const Login = () => {
     const navigate = useNavigate();
     const {login, error} = useAuth();
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
 
-    const onUsernameChange = (e) => {
-        setUsername(e.target.value);
+    const onEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
     const onPasswordChange = (e) => {
@@ -23,11 +23,11 @@ export const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!username || !password) return;
+        if (!email || !password) return;
 
-        const res = await login(username, password);
+        const res = await login(email, password);
 
-        if (res.error) {
+        if (res.err) {
             return;
         }
        
@@ -54,9 +54,9 @@ export const Login = () => {
       <Container>
             <Form onSubmit={handleSubmit}>
                 <Title3>Login</Title3>
-                <Field onChange={onUsernameChange} label="User name" placeholder="User Name" name="username" required />
-                <Field onChange={onPasswordChange} label="Password" name="password" type="password" required minLength={8} />
-                <Button login="true" style={{ color: "white" }} type="submit" disabled={!username || !password}>
+                <Field onChange={onEmailChange} label="Email" placeholder="mail@mail.lt" name="email" required />
+                <Field onChange={onPasswordChange} label="Password" placeholder="Testpasword0" name="password" type="password" required minLength={8} />
+                <Button login="true" style={{ color: "white" }} type="submit" disabled={!email || !password}>
                         Login
                 </Button>
                 <div style={{color: "red"}}>{error}</div>
