@@ -3,8 +3,8 @@ import {useNavigate, Link} from "react-router-dom";
 import {useAuth} from "../hooks/auth";
 import { Button } from "../ui/Button";
 import { Field } from "../organism/Field";
-import { Header, Navbar, Title1, Navi, Item } from "../ui/Navbar";
 import { Form, Container, Main, Title3 } from "../ui/Main";
+import { Nav } from "../organism/NavForNotLoged";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -36,21 +36,7 @@ export const Login = () => {
 
     return (
         <Main >
-            <Header style={{}}>
-                <Navbar className="navbar">
-                    <Title1>
-                        <Item as="img" src={`${process.env.PUBLIC_URL}/logo.jpg`} alt="logo" />
-                    </Title1>
-                    <Navi>
-                        <Button register="true">
-                            <Link style={{ color: "#1d3972" }} to="/register">Register</Link>
-                        </Button>
-                        <Button login="true">
-                            <Link style={{ color: "white" }} to="/Login" >Login</Link>
-                        </Button>
-                    </Navi>
-                </Navbar>
-        </Header>
+           <Nav/>
       <Container>
             <Form onSubmit={handleSubmit}>
                 <Title3>Login</Title3>
