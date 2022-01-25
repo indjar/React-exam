@@ -4,7 +4,7 @@ import {Auth} from "../services/authService";
 import { Button } from "../ui/Button";
 import { Field } from "../organism/Field";
 import { Header, Navbar, Title1, Navi, Item } from "../ui/Navbar";
-import { Form, Container, Main } from "../ui/Main";
+import { Form, Container, Main, Title3 } from "../ui/Main";
 
 export const Register = () => {
     const navigate = useNavigate();
@@ -53,9 +53,10 @@ export const Register = () => {
         </Header>
       <Container>
             <Form onSubmit={handleSubmit}>
+                <Title3>Register</Title3>
                 <Field onChange={onUsernameChange} label="User name" placeholder="User Name" name="username" required />
                 <Field onChange={onPasswordChange} label="Password" name="password" type="password" required minLength={8} />
-                <Button login style={{ color: "white" }} type="submit" disabled={!username || !password}>
+                <Button login="true" style={{ color: "white" }} type="submit" disabled={!username || !password}>
                         Register
                 </Button>
                 <div style={{color: "red"}}>{error}</div>
