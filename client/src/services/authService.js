@@ -1,4 +1,4 @@
-const AUTH_URL = `${process.env.REACT_APP_BASE_URL}/v1/auth/`;
+const AUTH_URL = `${process.env.REACT_APP_BASE_URL}/v1/auth`;
 console.log (AUTH_URL)
 export class Auth {
     static async register(email, password) {
