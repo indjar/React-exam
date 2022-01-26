@@ -3,8 +3,7 @@ import { Block, Title3, Paragra } from "../ui/Main";
 
 
 export const SkillsDisplay = (skills) => {
-    const navigate = useNavigate();
-
+    
     const skill=skills.skill
         
    

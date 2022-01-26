@@ -22,13 +22,12 @@ export const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!email || !password) return;
+        if (!email || !password) return setError("Please enter email and password");
 
         const res = await Auth.register(email, password);
 
         if (res.err) {
-            setError(res.err);
-            return;
+            return setError(res.err);
         }
         setError(null);
         alert('Registration successful, please login')
@@ -41,11 +40,17 @@ export const Register = () => {
             <Form onSubmit={handleSubmit}>
                 <Title3>Register</Title3>
                 <Field onChange={onEmailChange} label="Email" placeholder="mail@mail.lt" name="email" required />
-                <Field onChange={onPasswordChange} label="Password" name="password" type="password" required minLength={8} />
+                <Field onChange={onPasswordChange} label="Password" name="*********" type="password" required minLength={8} />
                 <Button login="true" style={{ color: "white" }} type="submit" disabled={!email || !password}>
                         Register
                 </Button>
-                <div style={{color: "red"}}>{error}</div>
+                <div 
+                style={{color: "red",
+                        padding:"20px", 
+                        textAlign:"center", 
+                        font:"message-box"}}>
+                            {error}
+                </div>
             </Form>
             </Container>
         </Main>

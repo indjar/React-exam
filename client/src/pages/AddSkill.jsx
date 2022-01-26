@@ -3,7 +3,7 @@ import {SkillsApi} from "../services/api";
 import { Field } from "../organism/Field";
 import { Button } from "../ui/Button";
 import { Form, Container, Main, Title1  } from "../ui/Main";
-import { Nav } from "../organism/NavForLoged";
+import { Nav } from "../organism/Nav";
 import { useAuth } from "../hooks/auth";
 
 export const AddSkills=()=>{
