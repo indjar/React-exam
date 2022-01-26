@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {SkillsApi} from "../services/api";
 import { Field } from "../organism/Field";
 import { Button } from "../ui/Button";
@@ -8,16 +8,17 @@ import { useAuth } from "../hooks/auth";
 
 export const AddSkills=()=>{
    const navigate=useNavigate();
-   const {id}=useParams();
    const {token}=useAuth();
   
-  
+
    const handleSubmit = async (e)=>{
        e.preventDefault();
        try {
            const data=new FormData (e.target);
            const [title, description]=data.values();
-            const skill= await SkillsApi.add({user_id:id, title, description}, token)
+           if (!title.length || !description.length)
+                return console.error('Please enter values');
+            const skill= await SkillsApi.add({title, description}, token)
             if(skill.err) throw new Error(skill.err);
             alert ('Added new skill')
   
