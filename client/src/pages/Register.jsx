@@ -31,6 +31,7 @@ export const Register = () => {
             return;
         }
         setError(null);
+        alert('Registration successful, please login')
        navigate("/login");
     };
 
