@@ -29,8 +29,8 @@ export const Home=()=>{
         fetchSkills();
     }, []);
 
-    useEffect(()=>{
-        if (!state) return ;
+    useState(()=>{
+        if (!state) return <div>Something went wrong</div>;
 
         if (state.added){
             addSkill(state.added);
@@ -38,12 +38,13 @@ export const Home=()=>{
     }, [state]);
 
     if (!skills) {
-        return <div>Loading...</div>;
+        return <Title3 style={{color:"red", marginTop:"180px"}}>Loading...</Title3>;
+    }
+    if (skills.length===0){
+        return <Title3 style={{color:"red", marginTop:"180px"}}>NO SKILLS ADDED YET <br/> Please add some</Title3> 
     }
 
-    const renderedSkills=!skills?
-    <Title3 style={{color:"red"}}>NO SKILLS ADDED YET <br/> Please add some</Title3> 
-    : skills.map((skill)=>(
+    const renderedSkills=skills.map((skill)=>(
         <SkillsDisplay key={skill.id} skill={skill}/>
     ) ) ;
 
