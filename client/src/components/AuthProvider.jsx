@@ -7,7 +7,7 @@ const decodeToken = (token) => {
 
     const [, tokenPayload] = token.split(".");
     const decodedPayload = atob(tokenPayload);
-
+   
     return JSON.parse(decodedPayload);
 };
 
@@ -22,11 +22,11 @@ export const AuthProvider = ({children}) => {
     });
 
     const login = async (email, password) => {
+        
         const res = await Auth.login(email, password);
-        console.log(res)
+
         if (res.err) {
             console.error(res.err);
-            console.log(res.err)
             setState({error: res.err, token: null});
             alert (`${res.err}`)
             return {error: res.err};
