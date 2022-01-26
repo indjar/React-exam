@@ -4,7 +4,7 @@ import {Element} from "./Elements";
 export const Main = ({...rest}) =>
     Element({as: "main",  ...rest});
 
-export const Paragra = ({ ...rest}) =>
+const paragra = ({ ...rest}) =>
     Element({as: "p", ...rest});
 
 const container = ({  ...rest}) =>
@@ -46,7 +46,9 @@ export const Form= styled(form)`
 `
 ;
 export const Title3=styled(title3)`
+    display:block
     text-align: center;
+    overflow-wrap: break-word;
 `
 ;
 export const Title1=styled(title1)`
@@ -64,6 +66,7 @@ export const Block = styled(block)`
     border: solid 2px #1d3972;
     width: 26%;
     height: 20%;
+    flex: 1 ;
     margin: 2%;
     text-align: center;
     padding: 30px 0 30px 0;
@@ -76,5 +79,9 @@ export const List= styled(list)`
     flex-direction:column;
     justify-content: flex-even;
     
+    
+`
+export const Paragra= styled(paragra)`
+    overflow-wrap: break-word;
 `
 ;

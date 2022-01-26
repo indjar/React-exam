@@ -23,6 +23,7 @@ export const Navbar= styled(navbar)`
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    background-color:white;
     max-width: 100%;
     max-height:15%;
     position: fixed;
