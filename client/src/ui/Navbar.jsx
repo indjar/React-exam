@@ -24,6 +24,7 @@ export const Navbar= styled(navbar)`
     align-items: center;
     flex-direction: row;
     max-width: 100%;
+    max-height:15%;
     position: fixed;
     top:0;
     left:0;

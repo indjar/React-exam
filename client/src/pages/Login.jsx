@@ -1,10 +1,10 @@
 import {useState} from "react";
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useAuth} from "../hooks/auth";
 import { Button } from "../ui/Button";
 import { Field } from "../organism/Field";
 import { Form, Container, Main, Title3 } from "../ui/Main";
-import { Nav } from "../organism/NavForNotLoged";
+
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -26,17 +26,16 @@ export const Login = () => {
         if (!email || !password) return;
 
         const res = await login(email, password);
-
+        console.log(res)
         if (res.err) {
             return;
         }
-       
-       navigate("/");
+       else{
+       navigate("/");}
     };
 
     return (
         <Main >
-           <Nav/>
       <Container>
             <Form onSubmit={handleSubmit}>
                 <Title3>Login</Title3>

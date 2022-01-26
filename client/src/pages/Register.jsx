@@ -1,10 +1,10 @@
 import {useState} from "react";
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Auth} from "../services/authService";
 import { Button } from "../ui/Button";
 import { Field } from "../organism/Field";
 import { Form, Container, Main, Title3 } from "../ui/Main";
-import { Nav } from "../organism/NavForNotLoged";
+
 
 export const Register = () => {
     const navigate = useNavigate();
@@ -36,7 +36,6 @@ export const Register = () => {
 
     return (
         <Main>
-           <Nav/>
       <Container>
             <Form onSubmit={handleSubmit}>
                 <Title3>Register</Title3>
