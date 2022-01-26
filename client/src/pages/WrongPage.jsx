@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Button } from '../ui/Button';
-import { Block, Container, Title3 } from '../ui/Main';
+import { Block, Title3 } from '../ui/Main';
 
 export const WrongPage = () => {
   return <Block style={{ marginTop: "180px", borderColor:"red" }}>

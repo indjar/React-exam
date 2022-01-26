@@ -23,8 +23,6 @@ export const Home=()=>{
         setSkills((prevState)=> [...prevState, skill])
     };
 
-    
-
     useEffect(()=>{
         fetchSkills();
     }, []);
@@ -48,7 +46,6 @@ export const Home=()=>{
         <SkillsDisplay key={skill.id} skill={skill}/>
     ) ) ;
 
-    console.log(renderedSkills)
 
     return (
         <Main>
